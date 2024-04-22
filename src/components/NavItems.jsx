@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from "../assets/images/logo/logo.png"
+import { AuthContext } from '../contexts/AuthProvider'
 
 const NavItems = () => {
 
     const [menuToggle, setMenuToggle] = useState(false)
     const [socialToggle, setSocialToggle] = useState(false)
     const [headerFixed, setHeaderFixed] = useState(false)
+
+
+    // auth info
+    const { user } = useContext(AuthContext)
+    console.log(user)
+
 
     //addevent Listener
     window.addEventListener("scroll", () => {
@@ -67,7 +74,7 @@ const NavItems = () => {
 
                             {/* social toggler */}
                             <div className='ellepsis-bar d-md-none' onClick={() => setSocialToggle(!socialToggle)}>
-                            <i className="icofont-info-square" ></i>
+                                <i className="icofont-info-square" ></i>
                             </div>
                         </div>
                     </div>
